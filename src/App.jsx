@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import {categorias,menus} from "./components/mock"
-
+import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 
 function App(){
 
@@ -15,6 +15,7 @@ return(
         <Routes>
             <Route exact path="/" element={<ItemListContainer />} />
             <Route exact path="/category/:id" element={<ItemListContainer/>} />
+            <Route exact path="/item/:id" element={<ItemDetailContainer/>} />
         </Routes>
     </BrowserRouter>
     
