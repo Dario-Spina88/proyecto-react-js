@@ -1,4 +1,11 @@
 .navbar{
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
+    background-color: rgb(83, 141, 189);
+}
+
+.navbar__menu{
+    color: black;
+    text-decoration: none;
+    margin: 8px;
 }
