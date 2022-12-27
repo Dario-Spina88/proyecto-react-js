@@ -1,4 +1,4 @@
-import {Entradas, categorias} from "../mock"
+import {Entradas, categorias} from "../../mock"
 import Item from "../Item/Item"
 import "./ItemListContainer.css"
 import { useEffect, useState } from "react"
