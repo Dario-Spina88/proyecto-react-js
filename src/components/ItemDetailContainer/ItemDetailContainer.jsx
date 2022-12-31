@@ -12,7 +12,7 @@ export const ItemDetailContainer = () => {
     useEffect(() =>{
         const querydb = getFirestore();
         const queryDoc = doc(querydb, "item",detalleId);
-        getDoc(queryDoc).then(res=>setData({id: res.category,...res.data()}))
+        getDoc(queryDoc).then(res=>setData({id: res.id,...res.data()}))
     },[detalleId])
 
     return (
