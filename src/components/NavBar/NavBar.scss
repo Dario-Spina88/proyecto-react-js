@@ -1,19 +1,28 @@
-.navbar{
-    display: flex;
-    justify-content:space-around;
+// .nav{
+//     display: flex;
+//     justify-content:space-around;
+//     background-color: rgb(83, 141, 189);
+// }
+
+.nav{
     background-color: rgb(83, 141, 189);
-}
-
-.navbar__menu{
-    color: black;
+    display: flex;
+    justify-content:space-between;
+    color: rgb(20, 17, 17);
     text-decoration: none;
-    margin: 8px;
 }
 
-.navbar__category-link{
+.navbar__category{
+    display: flex;
+    justify-content: space-around;
+    color: blanchedalmond;
+    text-decoration: none;
     margin-top: 10px;
     margin-left: 16px;
     margin-right: 16px ;
-    display: flex;
-    justify-content: center;
+}
+
+ul {
+    padding: 10px;
+    list-style: none;
 }

@@ -1,9 +1,3 @@
-.itemlistcontainer__entrada{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-}
-
 .entradas{
     margin: 20px;
 }

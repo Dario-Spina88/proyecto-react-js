@@ -1,33 +1,29 @@
-import {Entradas, categorias} from "../../mock"
-import Item from "../Item/Item"
-import "./ItemListContainer.css"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore"
+import ItemList from "../ItemList/ItemList";
+import Title from "../Title/Title";
+import { useParams } from "react-router-dom";
 
-const ItemListContainer = () => {
-  const [item,setItem] = useState(Entradas)
-  const {id}= useParams()
+export const ItemListContainer = ({ texto }) => {
+  const [data, setData] = useState([]);
+  const { categoriaId } = useParams();
 
-  const FilterCategory = new Promise((resolve,eject)=>{
-    // setTimeout(()=>{
-      const newEntradas = Entradas.filter((p)=> p.category == id)
-      resolve(newEntradas)
-    // },2000)
-  })
+  useEffect(() => {
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, "item")
 
-useEffect(()=>{
-  FilterCategory.then((response)=>{
-    setItem(response)
-  })
-},[id])
+    if (categoriaId) {
+      const queryFilter = query(queryCollection, where("category", "==", categoriaId))
+      getDocs(queryFilter).then(res => setData(res.docs.map(entrada => ({ id: entrada.id, ...entrada.data() }))))
+    } else {
+      getDocs(queryCollection).then(res => setData(res.docs.map(entrada => ({ id: entrada.id, ...entrada.data() }))))
+    }
+  }, [categoriaId])
 
-return(
-    <div className="itemlistcontainer__entrada">
-      {
-        item.map((entrada)=>{
-          return <Item entrada={entrada} />
-        })
-      }
+  return (
+    <div>
+      <Title greeting={texto} />
+      <ItemList data={data} />
     </div>
   )
 }

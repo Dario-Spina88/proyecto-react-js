@@ -1,28 +1,31 @@
-// import React from "react";
 import "./App.css";
+import React from "react";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
+import Cart from "./components/Cart/Cart";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import {categorias,menus} from "./mock";
-import CartFinish from "./components/CartFinish/CartFinish";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import CartProvider from "./Context/CartContext"
+
 
 function App(){
-
     return(
+        <div>
         <BrowserRouter className="App">
-            <NavBar menus={menus} categorias={categorias} />
+            <CartProvider>
+            <NavBar/>
             <Routes>
                 <Route exact path="/" element={<ItemListContainer />} />
-                <Route exact path="/category/:id" element={<ItemListContainer/>} />
-                <Route exact path="/item/:id" element={<ItemDetailContainer/>} />
-                <Route exact path="/cart" element={<CartFinish/>} />
-                
+                <Route exact path="/categoria/:categoriaId" element={<ItemListContainer/>} />
+                <Route exact path="/cart" element={<Cart/>} />
+                <Route exact path="/detalle/:detalleId" element={<ItemDetailContainer/>} />
             </Routes>
+            </CartProvider>
+            <Footer/>
         </BrowserRouter>
-        
+        </div>
     );
 }
 
 export default App;
-

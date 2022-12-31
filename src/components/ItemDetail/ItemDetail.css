@@ -1,0 +1,19 @@
+.container{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.detail{
+    display: flex;
+    background-color: rgba(100, 81, 49, 0.652);
+    
+}
+
+.content{
+    margin: 5px;
+}
+
+.artic{
+    margin: 20px;
+}

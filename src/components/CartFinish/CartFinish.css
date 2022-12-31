@@ -1,0 +1,12 @@
+.entrada__compra{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.datos{
+    margin: 40px;
+    display: flex;
+    margin-bottom: 24px;
+}
